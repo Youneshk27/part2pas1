@@ -6,9 +6,10 @@
 <body>
     <h1>Lista de Productos</h1>
     <ul>
-        {% for producto in productos %}
+        {% for producto in products %}
             <li>{{ producto }}</li>
         {% endfor %}
     </ul>
+    <a class="action" href="{{ url_for('products_create') }}">Crear producto</a>
 </body>
 </html>

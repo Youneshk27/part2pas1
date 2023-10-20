@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actualizar Producto</title>
+</head>
+<body>
+    <h1>Actualizar Producto</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="title">Título:</label>
+        <input type="text" name="title" value="{{ product.title }}" required><br>
+    
+        <label for="description">Descripción:</label>
+        <textarea name="description" required>{{ product.description }}</textarea><br>
+    
+        <label for="price">Precio:</label>
+        <input type="number" name="price" value="{{ product.price }}" required><br>
+    
+        <!-- Aquí puedes agregar el campo "photo" para actualizar la foto si lo deseas -->
+    
+        <label for="category">Categoría:</label>
+        <select name="category_id">
+            {% for category in categories %}
+                <option value="{{ category.id }}" {% if category.id == product.category_id %}selected{% endif %}>{{ category.name }}</option>
+            {% endfor %}
+        </select><br>
+    
+        <input type="submit" value="Actualizar Producto">
+    </form>
+</body>
+</html>
